@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import MegaMenu from "./MegaMenu";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,18 +14,9 @@ export default function Header() {
                 {/* Logo */}
                 <div className="flex flex-col items-center mr-4 md:mr-12 select-none" style={{ minWidth: 120 }}>
                     <span className="font-black text-xl leading-5 tracking-tight text-black text-center" style={{ fontFamily: 'Montserrat, Arial, sans-serif' }}>
-                        MAYO<br />CLINIC
                     </span>
                     <span className="mt-1">
-                        {/* Real Mayo Clinic Shield SVG */}
-                        <svg width="36" height="44" viewBox="0 0 36 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g>
-                                <path d="M18 42C18 42 2 35.5 2 22.5V4H34V22.5C34 35.5 18 42 18 42Z" stroke="#111" strokeWidth="2" fill="none" />
-                                <path d="M18 34V22" stroke="#111" strokeWidth="2" />
-                                <path d="M18 34C18 34 8 30 8 22.5V8" stroke="#111" strokeWidth="2" />
-                                <path d="M18 34C18 34 28 30 28 22.5V8" stroke="#111" strokeWidth="2" />
-                            </g>
-                        </svg>
+                        <Image src="/ciptahospitallogo.svg" alt="CiptaHospital" width={60} height={60} className="mb-2"/>
                     </span>
                 </div>
 
@@ -35,7 +27,7 @@ export default function Header() {
 
                 {/* Right Section - Desktop */}
                 <div className="hidden md:flex items-center gap-4 ml-12">
-                    <span className="text-[16px] font-normal text-black">Request appointment</span>
+                    <span className="text-[16px] font-normal text-black">Request Appointment</span>
                     <Link href="/login" className="flex items-center gap-2 group">
                         {/* User icon */}
                         <svg width="22" height="22" fill="none" viewBox="0 0 22 22" className="text-black group-hover:text-[#1664b0] transition-colors"><circle cx="11" cy="7.5" r="3.5" stroke="#111" strokeWidth="1.5" /><path d="M3.5 18c0-2.485 3.134-4.5 7-4.5s7 2.015 7 4.5" stroke="#111" strokeWidth="1.5" strokeLinecap="round" /></svg>
@@ -75,7 +67,7 @@ export default function Header() {
                 <div className="md:hidden bg-white border-t border-gray-200">
                     <div className="px-4 py-3 space-y-1">
                         <Link href="/appointments" className="block py-2 text-[16px] font-normal text-black hover:text-[#1664b0]">
-                            Request appointment
+                            Request Appointment
                         </Link>
                         <Link href="/login" className="block py-2 text-[16px] font-normal text-black hover:text-[#1664b0]">
                             Log in
