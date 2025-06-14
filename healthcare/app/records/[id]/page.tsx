@@ -50,7 +50,7 @@ export default function MedicalRecordDetailPage() {
             {/* Header */}
             <header className="bg-white shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex justify-between items-center">
-                    <Image src="/mayo-logo.svg" alt="Mayo Clinic" width={40} height={40} />
+                    <Image src="/ciptahospitallogo.svg" alt="Cipa Hospital" width={40} height={40} />
                     <div className="flex items-center space-x-4">
                         <Link href="/dashboard" className="text-[#0a3fa8] hover:underline">Dashboard</Link>
                         <Link href="/profile" className="text-[#0a3fa8] hover:underline">Profile</Link>
@@ -200,7 +200,7 @@ export default function MedicalRecordDetailPage() {
             <footer className="bg-white border-t mt-12">
                 <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
                     <div className="text-center text-sm text-gray-500">
-                        <p>© 1998 - 2025 Mayo Foundation for Medical Education and Research. All rights reserved.</p>
+                        <p>© 1998 - 2025 Cipta Foundation for Medical Education and Research. All rights reserved.</p>
                         <p className="mt-2">
                             <Link href="#" className="hover:underline">LEGAL RESTRICTIONS AND TERMS OF USE</Link>
                         </p>

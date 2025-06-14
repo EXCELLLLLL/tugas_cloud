@@ -16,7 +16,7 @@ export default function Home() {
     { text: 'Hotels & lodging', href: '#' },
     { text: 'Places to eat', href: '#' },
     { text: 'International services', href: '#' },
-    { text: 'Visiting Mayo Clinic discussion board', href: '#' },
+    { text: 'Visiting Cipta Hospital discussion board', href: '#' },
     { text: 'Support groups', href: '#' },
     { text: 'Social work', href: '#' },
     { text: 'Spiritual and religious services', href: '#' },
