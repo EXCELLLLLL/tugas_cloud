@@ -154,7 +154,7 @@ export default function LoginPage() {
                     <Link href="#" className="hover:underline">LEGAL RESTRICTIONS AND TERMS OF USE APPLICABLE TO THIS SITE</Link>
                 </div>
                 <div className="mt-1">Use of this site signifies your agreement to the terms of use.</div>
-                <div className="mt-1">© 1998 - 2025 Mayo Foundation for Medical Education and Research. All rights reserved.</div>
+                <div className="mt-1">© 1998 - 2025 Cipta Foundation for Medical Education and Research. All rights reserved.</div>
             </footer>
         </div>
     )
