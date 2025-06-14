@@ -61,7 +61,7 @@ export default function ProfilePage() {
                 <div className="flex flex-1 items-center justify-center">
                     <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-10 mx-4 mt-12 mb-8 border border-gray-100">
                         <div className="flex flex-col items-center mb-6">
-                            <Image src="/mayo-logo.svg" alt="Mayo Clinic" width={48} height={48} className="mb-2" />
+                            <Image src="/ciptahospitallogo.svg" alt="Mayo Clinic" width={48} height={48} className="mb-2" />
                             <h1 className="text-4xl font-extrabold text-gray-900 mb-2 text-center">My Profile</h1>
                             <p className="text-lg font-semibold text-[#0a3fa8] text-center">Manage your account</p>
                         </div>
