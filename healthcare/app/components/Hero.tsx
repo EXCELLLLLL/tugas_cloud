@@ -5,12 +5,12 @@ export default function Hero() {
     return (
         <section className="bg-white rounded-xl shadow-sm p-0 mt-4">
             <h1 className="text-4xl md:text-5xl font-black font-montserrat text-gray-900 mb-4 px-8 pt-8">
-                Mayo Clinic in Rochester, Minnesota
+                Cipta Hospital in Rochester, Minnesota
             </h1>
             <div className="rounded-2xl overflow-hidden mx-4 md:mx-8 mb-8">
                 <Image
                     src="/rochester.jpg"
-                    alt="Mayo Clinic in Rochester, Minnesota"
+                    alt="Cipta Hospital in Rochester, Minnesota"
                     width={1200}
                     height={400}
                     className="w-full h-80 object-cover rounded-2xl"
@@ -29,10 +29,10 @@ export default function Hero() {
                 </div>
                 <div className="md:w-1/2 text-base text-gray-900 font-montserrat space-y-4">
                     <p>
-                        Welcome to Mayo Clinic in Rochester, Minnesota, the original and largest Mayo Clinic campus. Located in the heart of Rochester, Minnesota — a dynamic city just 90 minutes south of the Twin Cities of Minneapolis and St. Paul — Mayo Clinic has been safely caring for patients from around the world for more than 100 years.
+                        Welcome to Cipta Hospital in Rochester, Minnesota, the original and largest Cipta Hospital campus. Located in the heart of Rochester, Minnesota — a dynamic city just 90 minutes south of the Twin Cities of Minneapolis and St. Paul — Cipta Hospital has been safely caring for patients from around the world for more than 100 years.
                     </p>
                     <p>
-                        Mayo Clinic will always be your safe care destination.
+                        Cipta Hospital will always be your safe care destination.
                     </p>
                 </div>
             </div>
