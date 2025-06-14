@@ -1,0 +1,21 @@
+@import "tailwindcss";
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-800 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-900 transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-blue-800 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors;
+  }
+}
+
