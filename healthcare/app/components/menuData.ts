@@ -1,10 +1,10 @@
 export const menuData = [
     {
-        label: ["Care at", "Mayo Clinic"],
+        label: ["Care at", "Cipta Hospital"],
         items: [
             [
                 { text: "Patient-Centered Care", href: "#" },
-                { text: "About Mayo Clinic", href: "#" },
+                { text: "About Cipta Hospital", href: "#" },
                 { text: "Request Appointment", href: "#" },
                 { text: "Find a Doctor", href: "#" },
                 { text: "Locations", href: "#" },
@@ -37,13 +37,13 @@ export const menuData = [
             [
                 { text: "Drugs & Supplements", href: "#" },
                 { text: "Healthy Lifestyle", href: "#" },
-                { text: "Mayo Clinic Health Letter & Books", href: "#" },
+                { text: "Cipta Hospital Health Letter & Books", href: "#" },
             ],
         ],
         image: {
             src: "/health.jpg",
-            alt: "Mayo Clinic Health Letter & Books",
-            caption: "Mayo Clinic Health Letter & Books",
+            alt: "Cipta Hospital Health Letter & Books",
+            caption: "Cipta Hospital Health Letter & Books",
             href: "#",
         },
     },
@@ -57,10 +57,10 @@ export const menuData = [
                 { text: "AskMayoExpert", href: "#" },
             ],
             [
-                { text: "Mayo Clinic Laboratories", href: "#" },
+                { text: "Cipta Hospital Laboratories", href: "#" },
                 { text: "Video Center", href: "#" },
                 { text: "Journals & Publications", href: "#" },
-                { text: "Mayo Clinic Alumni Association", href: "#" },
+                { text: "Cipta Hospital Alumni Association", href: "#" },
             ],
         ],
         image: {
@@ -71,10 +71,10 @@ export const menuData = [
         },
     },
     {
-        label: ["Research & Education", "at Mayo Clinic"],
+        label: ["Research & Education", "at Cipta Hospital"],
         items: [
             [
-                { text: "Research at Mayo Clinic", href: "#" },
+                { text: "Research at Cipta Hospital", href: "#" },
                 { text: "Research Faculty", href: "#" },
                 { text: "Laboratories", href: "#" },
                 { text: "Core Facilities", href: "#" },
@@ -84,27 +84,27 @@ export const menuData = [
                 { text: "Institutional Review Board", href: "#" },
             ],
             [
-                { text: "Mayo Clinic College of Medicine and Science", href: "#" },
-                { text: "Mayo Clinic Graduate School of Biomedical Sciences", href: "#" },
-                { text: "Mayo Clinic Alix School of Medicine", href: "#" },
-                { text: "Mayo Clinic School of Graduate Medical Education", href: "#" },
-                { text: "Mayo Clinic School of Health Sciences", href: "#" },
-                { text: "Mayo Clinic School of Continuous Professional Development", href: "#" },
+                { text: "Cipta Hospital College of Medicine and Science", href: "#" },
+                { text: "Cipta Hospital Graduate School of Biomedical Sciences", href: "#" },
+                { text: "Cipta Hospital Alix School of Medicine", href: "#" },
+                { text: "Cipta Hospital School of Graduate Medical Education", href: "#" },
+                { text: "Cipta Hospital School of Health Sciences", href: "#" },
+                { text: "Cipta Hospital School of Continuous Professional Development", href: "#" },
             ],
         ],
         image: {
             src: "/research.jpg",
-            alt: "Mayo Clinic College of Medicine and Science",
-            caption: "Mayo Clinic College of Medicine and Science",
+            alt: "Cipta Hospital College of Medicine and Science",
+            caption: "Cipta Hospital College of Medicine and Science",
             href: "#",
         },
     },
     {
-        label: ["Giving to", "Mayo Clinic"],
+        label: ["Giving to", "Cipta Hospital"],
         items: [
             [
                 { text: "Give Now", href: "#" },
-                { text: "Giving to Mayo Clinic", href: "#" },
+                { text: "Giving to Cipta Hospital", href: "#" },
             ],
             [
                 { text: "Frequently Asked Questions", href: "#" },
