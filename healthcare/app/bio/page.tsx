@@ -6,6 +6,12 @@ const BLOOD_TYPES = [
     '', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'
 ];
 
+const SOCIAL_PLATFORMS = [
+    { id: 'linkedin', label: 'LinkedIn', placeholder: 'https://linkedin.com/in/yourprofile' },
+    { id: 'twitter', label: 'Twitter', placeholder: 'https://twitter.com/yourhandle' },
+    { id: 'website', label: 'Website', placeholder: 'https://yourwebsite.com' },
+];
+
 function ProgressBar({ step }: { step: number }) {
     const steps = ['Personal', 'Medical', 'Insurance', 'Review'];
     return (
@@ -17,6 +23,20 @@ function ProgressBar({ step }: { step: number }) {
                     {idx < steps.length - 1 && <div className="w-full h-1 bg-gray-200 mt-2 mb-2" />}
                 </div>
             ))}
+        </div>
+    );
+}
+
+function ProfileCompletionBar({ percent }: { percent: number }) {
+    return (
+        <div className="mb-6">
+            <div className="flex justify-between mb-1">
+                <span className="text-sm font-medium text-[#0a3fa8]">Profile Completion</span>
+                <span className="text-sm font-medium text-[#0a3fa8]">{percent}%</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2.5">
+                <div className="bg-[#0a3fa8] h-2.5 rounded-full transition-all" style={{ width: `${percent}%` }}></div>
+            </div>
         </div>
     );
 }
@@ -40,6 +60,9 @@ type DraftState = FormState & {
     emergencyContacts: EmergencyContact[];
     profilePhoto: string | null;
     insuranceCard: string | null;
+    about?: string;
+    socialLinks?: { [key: string]: string };
+    skills?: string[];
 };
 type ErrorsState = Partial<Record<keyof FormState, string>>;
 
@@ -69,6 +92,10 @@ export default function BioPage() {
         policyNumber: '',
     });
     const [errors, setErrors] = useState<ErrorsState>({});
+    const [about, setAbout] = useState('');
+    const [socialLinks, setSocialLinks] = useState<{ [key: string]: string }>({});
+    const [skills, setSkills] = useState<string[]>([]);
+    const [skillInput, setSkillInput] = useState('');
 
     // Pre-fill form with user data from auth service
     useEffect(() => {
@@ -78,6 +105,9 @@ export default function BioPage() {
                 fullName: `${user.firstName} ${user.lastName}`,
                 email: user.email
             }));
+            setAbout(user.bio || '');
+            setSocialLinks(user.socialLinks || {});
+            setSkills(user.skills || []);
         }
     }, [user]);
 
@@ -118,7 +148,7 @@ export default function BioPage() {
 
     // Save as draft
     function saveDraft() {
-        setDraft({ ...form, emergencyContacts, profilePhoto, insuranceCard });
+        setDraft({ ...form, emergencyContacts, profilePhoto, insuranceCard, about, socialLinks, skills });
     }
     function loadDraft() {
         if (draft) {
@@ -126,6 +156,9 @@ export default function BioPage() {
             setEmergencyContacts(draft.emergencyContacts || [{ name: '', phone: '' }]);
             setProfilePhoto(draft.profilePhoto || null);
             setInsuranceCard(draft.insuranceCard || null);
+            setAbout(draft.about || '');
+            setSocialLinks(draft.socialLinks || {});
+            setSkills(draft.skills || []);
         }
     }
 
@@ -176,7 +209,10 @@ export default function BioPage() {
                     ...form,
                     emergencyContacts,
                     profilePhoto,
-                    insuranceCard
+                    insuranceCard,
+                    about,
+                    socialLinks,
+                    skills
                 });
             }
 
@@ -192,6 +228,33 @@ export default function BioPage() {
     // Form field handler
     function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
         setForm({ ...form, [e.target.name]: e.target.value });
+    }
+
+    // Profile completion calculation
+    const completionPercent = (() => {
+        let filled = 0;
+        const total = 15 + SOCIAL_PLATFORMS.length + 1 + 1; // fields + socials + about + skills
+        Object.values(form).forEach(v => { if (v) filled++; });
+        SOCIAL_PLATFORMS.forEach(p => { if (socialLinks[p.id]) filled++; });
+        if (about) filled++;
+        if (skills.length > 0) filled++;
+        return Math.round((filled / total) * 100);
+    })();
+
+    // Skill tag handlers
+    function addSkill() {
+        if (skillInput && !skills.includes(skillInput)) {
+            setSkills([...skills, skillInput]);
+            setSkillInput('');
+        }
+    }
+    function removeSkill(skill: string) {
+        setSkills(skills.filter(s => s !== skill));
+    }
+
+    // Social link handler
+    function handleSocialChange(platform: string, value: string) {
+        setSocialLinks({ ...socialLinks, [platform]: value });
     }
 
     return (

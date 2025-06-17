@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -18,25 +19,41 @@ import (
 func main() {
 	// Load environment variables
 	if err := godotenv.Load(); err != nil {
-		log.Println("No .env file found")
+		log.Printf("Warning: Error loading .env file: %v", err)
+	}
+
+	// Get environment variables
+	host := os.Getenv("DB_HOST")
+	port := os.Getenv("DB_PORT")
+	user := os.Getenv("DB_USER")
+	password := os.Getenv("DB_PASSWORD")
+	dbname := os.Getenv("DB_NAME")
+
+	// Validate environment variables
+	if host == "" || port == "" || user == "" || password == "" || dbname == "" {
+		log.Fatal("Missing required environment variables. Please check your .env file")
 	}
 
 	// Initialize database
 	dsn := os.Getenv("DATABASE_URL")
 	if dsn == "" {
-		dsn = "host=localhost user=postgres password=postgres dbname=healthcare port=5432 sslmode=disable"
+		dsn = fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
+			host, user, password, dbname, port)
 	}
-	log.Printf("Connecting to database with DSN: %s", dsn)
-	
+
+	log.Printf("Attempting to connect to database at %s:%s", host, port)
+
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
-		log.Fatal("Failed to connect to database:", err)
+		log.Fatalf("Failed to connect to database: %v", err)
 	}
 	log.Println("Successfully connected to database")
 
 	// Auto-migrate the schema
 	log.Println("Running database migrations...")
-	db.AutoMigrate(&models.User{}, &models.Activity{}, &models.BioInformation{}, &models.EmergencyContact{})
+	if err := db.AutoMigrate(&models.User{}, &models.Activity{}, &models.BioInformation{}, &models.EmergencyContact{}); err != nil {
+		log.Fatalf("Failed to run migrations: %v", err)
+	}
 	log.Println("Database migrations completed")
 
 	// Initialize handlers
@@ -91,10 +108,12 @@ func main() {
 	}
 
 	// Start server
-	port := os.Getenv("PORT")
+	port = os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
 	log.Printf("Starting server on port %s...", port)
-	r.Run(":" + port)
+	if err := r.Run(":" + port); err != nil {
+		log.Fatalf("Failed to start server: %v", err)
+	}
 }

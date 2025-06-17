@@ -74,6 +74,8 @@ export interface MedicalRecord {
     date: string;
     createdAt: string;
     updatedAt: string;
+    status: 'final' | 'preliminary' | 'draft';
+    category: 'lab' | 'imaging' | 'consultation' | 'prescription';
 }
 
 export interface CreateMedicalRecordInput {
@@ -210,14 +212,55 @@ class AuthService extends ApiService {
             return [
                 {
                     id: 1,
-                    type: 'Check-up',
-                    provider: 'Dr. Smith',
-                    department: 'General Medicine',
-                    summary: 'Regular check-up, all vitals normal',
+                    type: 'Complete Blood Count',
+                    provider: 'Dr. Sarah Johnson',
+                    department: 'Laboratory',
+                    summary: 'Complete blood count and lipid panel results',
                     attachments: 2,
                     date: '2024-03-15',
-                    createdAt: '2024-03-15T10:00:00Z',
-                    updatedAt: '2024-03-15T10:00:00Z'
+                    createdAt: '2024-03-15T10:30:00Z',
+                    updatedAt: '2024-03-15T10:30:00Z',
+                    status: 'final',
+                    category: 'lab'
+                },
+                {
+                    id: 2,
+                    type: 'Chest X-ray',
+                    provider: 'Dr. Michael Chen',
+                    department: 'Radiology',
+                    summary: 'Chest X-ray examination results',
+                    attachments: 1,
+                    date: '2024-03-10',
+                    createdAt: '2024-03-10T14:15:00Z',
+                    updatedAt: '2024-03-10T14:15:00Z',
+                    status: 'final',
+                    category: 'imaging'
+                },
+                {
+                    id: 3,
+                    type: 'Follow-up Consultation',
+                    provider: 'Dr. Emily Brown',
+                    department: 'Orthopedics',
+                    summary: 'Follow-up consultation for knee pain',
+                    attachments: 0,
+                    date: '2024-03-05',
+                    createdAt: '2024-03-05T09:45:00Z',
+                    updatedAt: '2024-03-05T09:45:00Z',
+                    status: 'final',
+                    category: 'consultation'
+                },
+                {
+                    id: 4,
+                    type: 'Prescription Renewal',
+                    provider: 'Dr. James Wilson',
+                    department: 'Cardiology',
+                    summary: 'Prescription renewal for blood pressure medication',
+                    attachments: 1,
+                    date: '2024-03-01',
+                    createdAt: '2024-03-01T11:20:00Z',
+                    updatedAt: '2024-03-01T11:20:00Z',
+                    status: 'final',
+                    category: 'prescription'
                 }
             ];
         }
@@ -237,7 +280,62 @@ class AuthService extends ApiService {
         } catch (error) {
             console.warn('API fetch failed, returning mock data:', error);
             // Return mock data when API is not available
-            return {
+            const mockRecords = {
+                1: {
+                    id: 1,
+                    type: 'Complete Blood Count',
+                    provider: 'Dr. Sarah Johnson',
+                    department: 'Laboratory',
+                    summary: 'Complete blood count and lipid panel results',
+                    attachments: 2,
+                    date: '2024-03-15',
+                    createdAt: '2024-03-15T10:30:00Z',
+                    updatedAt: '2024-03-15T10:30:00Z',
+                    status: 'final',
+                    category: 'lab'
+                },
+                2: {
+                    id: 2,
+                    type: 'Chest X-ray',
+                    provider: 'Dr. Michael Chen',
+                    department: 'Radiology',
+                    summary: 'Chest X-ray examination results',
+                    attachments: 1,
+                    date: '2024-03-10',
+                    createdAt: '2024-03-10T14:15:00Z',
+                    updatedAt: '2024-03-10T14:15:00Z',
+                    status: 'final',
+                    category: 'imaging'
+                },
+                3: {
+                    id: 3,
+                    type: 'Follow-up Consultation',
+                    provider: 'Dr. Emily Brown',
+                    department: 'Orthopedics',
+                    summary: 'Follow-up consultation for knee pain',
+                    attachments: 0,
+                    date: '2024-03-05',
+                    createdAt: '2024-03-05T09:45:00Z',
+                    updatedAt: '2024-03-05T09:45:00Z',
+                    status: 'final',
+                    category: 'consultation'
+                },
+                4: {
+                    id: 4,
+                    type: 'Prescription Renewal',
+                    provider: 'Dr. James Wilson',
+                    department: 'Cardiology',
+                    summary: 'Prescription renewal for blood pressure medication',
+                    attachments: 1,
+                    date: '2024-03-01',
+                    createdAt: '2024-03-01T11:20:00Z',
+                    updatedAt: '2024-03-01T11:20:00Z',
+                    status: 'final',
+                    category: 'prescription'
+                }
+            };
+
+            return mockRecords[id as keyof typeof mockRecords] || {
                 id: id,
                 type: 'Check-up',
                 provider: 'Dr. Smith',
@@ -246,7 +344,9 @@ class AuthService extends ApiService {
                 attachments: 2,
                 date: '2024-03-15',
                 createdAt: '2024-03-15T10:00:00Z',
-                updatedAt: '2024-03-15T10:00:00Z'
+                updatedAt: '2024-03-15T10:00:00Z',
+                status: 'final',
+                category: 'consultation'
             };
         }
     }
@@ -272,7 +372,9 @@ class AuthService extends ApiService {
                 ...input,
                 attachments: input.attachments || 0,
                 createdAt: new Date().toISOString(),
-                updatedAt: new Date().toISOString()
+                updatedAt: new Date().toISOString(),
+                status: 'final',
+                category: 'consultation'
             };
         }
     }
@@ -302,7 +404,9 @@ class AuthService extends ApiService {
                 attachments: input.attachments || 0,
                 date: input.date || '2024-03-15',
                 createdAt: '2024-03-15T10:00:00Z',
-                updatedAt: new Date().toISOString()
+                updatedAt: new Date().toISOString(),
+                status: 'final',
+                category: 'consultation'
             };
         }
     }
