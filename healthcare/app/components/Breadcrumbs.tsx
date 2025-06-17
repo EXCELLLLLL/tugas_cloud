@@ -8,7 +8,7 @@ export default function Breadcrumbs() {
                 <li><span className="mx-2">/</span></li>
                 <li><Link href="#" className="hover:underline text-blue-800">Patient & Visitor Guide</Link></li>
                 <li><span className="mx-2">/</span></li>
-                <li className="text-gray-800">Cipta Hospital in Minnesota</li>
+                <li className="text-gray-800">Cipta Hospital in South Tangerang</li>
             </ol>
         </nav>
     )

@@ -20,7 +20,7 @@ export const menuData = [
             ],
         ],
         image: {
-            src: "/care.jpg",
+            src: "/ciptaguide.jpg",
             alt: "Patient & Visitor Guide",
             caption: "Patient & Visitor Guide",
             href: "#",
@@ -41,7 +41,7 @@ export const menuData = [
             ],
         ],
         image: {
-            src: "/health.jpg",
+            src: "/ciptabook.jpg",
             alt: "Cipta Hospital Health Letter & Books",
             caption: "Cipta Hospital Health Letter & Books",
             href: "#",
@@ -64,7 +64,7 @@ export const menuData = [
             ],
         ],
         image: {
-            src: "/professionals.jpg",
+            src: "/ciptaedu.jpg",
             alt: "Continuing Medical Education",
             caption: "Continuing Medical Education",
             href: "#",
@@ -93,7 +93,7 @@ export const menuData = [
             ],
         ],
         image: {
-            src: "/research.jpg",
+            src: "/ciptacollege.jpg",
             alt: "Cipta Hospital College of Medicine and Science",
             caption: "Cipta Hospital College of Medicine and Science",
             href: "#",
@@ -112,7 +112,7 @@ export const menuData = [
             ],
         ],
         image: {
-            src: "/giving.jpg",
+            src: "/ciptadonation.jpg",
             alt: "Make a Donation",
             caption: "Make a Donation",
             href: "#",
