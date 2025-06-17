@@ -531,7 +531,7 @@ export default function DashboardPage() {
     return (
         <div className="min-h-screen bg-gray-50">
             <DashboardHeader />
-
+        
             {/* Main Content */}
             <main className="container mx-auto px-4 py-8">
                 {/* Welcome Section */}
@@ -989,6 +989,7 @@ export default function DashboardPage() {
                                 Close
                             </button>
                         </div>
+
                     </div>
                 </div>
             )}

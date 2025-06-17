@@ -44,9 +44,9 @@ export default function RegisterPage() {
                 <div className="flex flex-1 items-center justify-center">
                     <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-10 mx-4 mt-12 mb-8 border border-gray-100">
                         <div className="flex flex-col items-center mb-6">
-                            <Image src="/mayo-logo.svg" alt="Mayo Clinic" width={48} height={48} className="mb-2" />
+                            <Image src="/ciptahospitallogo.svg" alt="CiptaHospital" width={48} height={48} className="mb-2" />
                             <h1 className="text-4xl font-extrabold text-gray-900 mb-2 text-center">Create Account</h1>
-                            <p className="text-lg font-semibold text-[#0a3fa8] text-center">Join Mayo Clinic Patient Portal</p>
+                            <p className="text-lg font-semibold text-[#0a3fa8] text-center">Join Cipta Hospital Patient Portal</p>
                         </div>
                         {error && (
                             <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
@@ -164,7 +164,7 @@ export default function RegisterPage() {
                     <Link href="#" className="hover:underline">LEGAL RESTRICTIONS AND TERMS OF USE APPLICABLE TO THIS SITE</Link>
                 </div>
                 <div className="mt-1">Use of this site signifies your agreement to the terms of use.</div>
-                <div className="mt-1">© 1998 - 2025 Mayo Foundation for Medical Education and Research. All rights reserved.</div>
+                <div className="mt-1">© 1998 - 2025 Cipta Foundation for Medical Education and Research. All rights reserved.</div>
             </footer>
         </div>
     )

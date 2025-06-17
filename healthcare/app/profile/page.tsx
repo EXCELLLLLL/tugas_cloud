@@ -103,6 +103,7 @@ export default function ProfilePage() {
                                             <span className="text-white text-sm font-medium">Change Photo</span>
                                         </label>
                                     )}
+
                                 </div>
                                 <h2 className="text-2xl font-bold text-gray-900 mt-4">{user.firstName} {user.lastName}</h2>
                                 <p className="text-gray-600 capitalize">{user.role}</p>
