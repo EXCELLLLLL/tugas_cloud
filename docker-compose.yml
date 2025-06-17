@@ -1,0 +1,94 @@
+version: "3.8"
+services:
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "8081:8080"
+    environment:
+      - DB_HOST=your-rds-endpoint.amazonaws.com
+      - DB_USER=your_rds_user
+      - DB_PASSWORD=your_rds_password
+      - DB_NAME=your_rds_db
+      - DB_PORT=5432
+
+  user-service:
+    build: ./user-service
+    ports:
+      - "3001:3000"
+    environment:
+      - DB_HOST=your-rds-endpoint.amazonaws.com
+      - DB_USER=your_rds_user
+      - DB_PASSWORD=your_rds_password
+      - DB_NAME=your_rds_db
+      - DB_PORT=5432
+
+  appointment-service:
+    build: ./appointment-service
+    ports:
+      - "8082:8080"
+    environment:
+      - DB_HOST=your-rds-endpoint.amazonaws.com
+      - DB_USER=your_rds_user
+      - DB_PASSWORD=your_rds_password
+      - DB_NAME=your_rds_db
+      - DB_PORT=5432
+
+  billing-service:
+    build: ./billing-service
+    ports:
+      - "8084:8080"
+    environment:
+      - DB_HOST=your-rds-endpoint.amazonaws.com
+      - DB_USER=your_rds_user
+      - DB_PASSWORD=your_rds_password
+      - DB_NAME=your_rds_db
+      - DB_PORT=5432
+
+  doctor-service:
+    build: ./doctor-service
+    ports:
+      - "8086:8080"
+    environment:
+      - DB_HOST=your-rds-endpoint.amazonaws.com
+      - DB_USER=your_rds_user
+      - DB_PASSWORD=your_rds_password
+      - DB_NAME=your_rds_db
+      - DB_PORT=5432
+
+  medical-record-service:
+    build: ./medical-record-service
+    ports:
+      - "8083:8080"
+    environment:
+      - DB_HOST=your-rds-endpoint.amazonaws.com
+      - DB_USER=your_rds_user
+      - DB_PASSWORD=your_rds_password
+      - DB_NAME=your_rds_db
+      - DB_PORT=5432
+
+  notification-service:
+    build: ./notification-service
+    ports:
+      - "8085:8080"
+    environment:
+      - DB_HOST=your-rds-endpoint.amazonaws.com
+      - DB_USER=your_rds_user
+      - DB_PASSWORD=your_rds_password
+      - DB_NAME=your_rds_db
+      - DB_PORT=5432
+
+  frontend:
+    build: ./healthcare
+    ports:
+      - "3000:3000"
+    depends_on:
+      - auth-service
+      - user-service
+      - appointment-service
+      - billing-service
+      - doctor-service
+      - medical-record-service
+      - notification-service
+
+volumes:
+  pgdata:

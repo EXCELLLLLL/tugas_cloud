@@ -50,6 +50,10 @@ class AppointmentService extends ApiService {
         return this.put<{ message: string }>(`/api/appointments/${id}/cancel`, {});
     }
 
+    async rescheduleAppointment(id: number, date: string, time: string): Promise<Appointment> {
+        return this.put<Appointment>(`/api/appointments/${id}/reschedule`, { date, time });
+    }
+
     async getDoctorAppointments(doctorId: number): Promise<Appointment[]> {
         return this.get<Appointment[]>(`/api/appointments/doctor/${doctorId}`);
     }
