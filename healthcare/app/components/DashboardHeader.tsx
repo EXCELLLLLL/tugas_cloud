@@ -18,7 +18,7 @@ export default function DashboardHeader() {
                     {/* Left section - Logo and Navigation */}
                     <div className="flex items-center space-x-8">
                         <Link href="/dashboard" className="flex items-center space-x-3">
-                            <Image src="/mayo-logo.svg" alt="Mayo Clinic" width={40} height={40} />
+                            <Image src="/ciptahospitallogo.svg" alt="Cipta Hospital" width={40} height={40} />
                             <span className="text-xl font-semibold text-gray-900">Dashboard</span>
                         </Link>
                         <nav className="hidden md:flex items-center space-x-6">

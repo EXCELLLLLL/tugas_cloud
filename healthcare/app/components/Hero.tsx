@@ -5,12 +5,12 @@ export default function Hero() {
     return (
         <section className="bg-white rounded-xl shadow-sm p-0 mt-4">
             <h1 className="text-4xl md:text-5xl font-black font-montserrat text-gray-900 mb-4 px-8 pt-8">
-                Cipta Hospital in Rochester, Minnesota
+                Cipta Hospital in Pamulang, South Tangerang
             </h1>
             <div className="rounded-2xl overflow-hidden mx-4 md:mx-8 mb-8">
                 <Image
-                    src="/rochester.jpg"
-                    alt="Cipta Hospital in Rochester, Minnesota"
+                    src="/ciptabuilding.jpg"
+                    alt="Cipta Hospital in Pamulang, South Tangerang"
                     width={1200}
                     height={400}
                     className="w-full h-80 object-cover rounded-2xl"
@@ -29,7 +29,7 @@ export default function Hero() {
                 </div>
                 <div className="md:w-1/2 text-base text-gray-900 font-montserrat space-y-4">
                     <p>
-                        Welcome to Cipta Hospital in Rochester, Minnesota, the original and largest Cipta Hospital campus. Located in the heart of Rochester, Minnesota — a dynamic city just 90 minutes south of the Twin Cities of Minneapolis and St. Paul — Cipta Hospital has been safely caring for patients from around the world for more than 100 years.
+                        Welcome to Cipta Hospital, a trusted healthcare institution located in Pamulang, South Tangerang. As one of the leading private hospitals in the region, Cipta Hospital is committed to providing high-quality, patient-centered care for the community. Strategically situated in a rapidly growing suburban area just south of Jakarta, we serve thousands of patients each year with compassion, innovation, and medical excellence. From general care to specialized treatment, Cipta Hospital continues to expand its services to meet the evolving health needs of families in South Tangerang and beyond.
                     </p>
                     <p>
                         Cipta Hospital will always be your safe care destination.

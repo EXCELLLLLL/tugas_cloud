@@ -459,7 +459,7 @@ export default function BillingPage() {
             <footer className="bg-white border-t border-gray-200 mt-12">
                 <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
                     <div className="text-center text-sm text-gray-500">
-                        <p>© 1998 - 2025 Mayo Foundation for Medical Education and Research. All rights reserved.</p>
+                        <p>© 1998 - 2025 Cipta Foundation for Medical Education and Research. All rights reserved.</p>
                         <p className="mt-2">
                             <Link href="#" className="hover:underline">LEGAL RESTRICTIONS AND TERMS OF USE</Link>
                         </p>
